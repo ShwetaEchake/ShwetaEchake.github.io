@@ -541,3 +541,4 @@ main { flex: 1 0 auto; }
     .stats span { max-width: 130px; font-size: 13.5px; }
     .stats b { font-size: 36px; }
 }
+@media (min-width: 900px) { .shots-laptop .shot-wide { grid-column: 1 / -1; max-width: 760px; justify-self: center; width: 100%; } }
