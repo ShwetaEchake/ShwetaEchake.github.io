@@ -9,6 +9,8 @@
     --accent-2: color-mix(in srgb, var(--accent) 82%, #fff);
     /* Small text in the accent: a lighter shade, so it stays easy to read on the dark background */
     --accent-text: color-mix(in srgb, var(--accent) 72%, #fff);
+    /* Text on an accent background: white, or dark for a light accent (set by script.js) */
+    --on-accent: #fff;
     --radius: 14px;
     --wrap: 1180px;
     --display: "Unbounded", "Sora", system-ui, sans-serif;
@@ -40,8 +42,8 @@ figure { margin: 0; }
 .nav-links a { position: relative; font-size: 15px; font-weight: 500; text-decoration: none; color: #e7e6ee; }
 .nav-links a:hover, .nav-links a.is-active { color: var(--accent-text); }
 .nav-links a.is-active:not(.nav-cta)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; border-radius: 2px; background: var(--accent); }
-.nav-links .nav-cta { padding: 9px 20px; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 600; }
-.nav-links .nav-cta:hover, .nav-links .nav-cta.is-active { background: var(--accent-2); color: #fff; }
+.nav-links .nav-cta { padding: 9px 20px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 600; }
+.nav-links .nav-cta:hover, .nav-links .nav-cta.is-active { background: var(--accent-2); color: var(--on-accent); }
 .nav-toggle { display: none; }
 @media (max-width: 767px) {
     .nav { height: 64px; }
@@ -65,13 +67,13 @@ figure { margin: 0; }
 }
 .btn svg { width: 18px; height: 18px; fill: currentColor; }
 .btn-outline { border: 1.5px solid var(--accent); color: var(--accent-text); }
-.btn-outline:hover { background: var(--accent); color: #fff; }
-.btn-fill { background: var(--accent); color: #fff; }
+.btn-outline:hover { background: var(--accent); color: var(--on-accent); }
+.btn-fill { background: var(--accent); color: var(--on-accent); }
 .btn-fill:hover { background: var(--accent-2); }
 
 .socials { list-style: none; display: flex; gap: 10px; }
 .socials a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent-text); transition: background .15s, color .15s; }
-.socials a:hover { background: var(--accent); color: #fff; }
+.socials a:hover { background: var(--accent); color: var(--on-accent); }
 .socials svg { width: 18px; height: 18px; fill: currentColor; }
 
 /* ---------- Tabs ---------- */
@@ -133,7 +135,7 @@ figure { margin: 0; }
 @media (max-width: 959px) { .resume-tabs { grid-template-columns: 1fr 1fr; } }
 .resume-tabs a { padding: 13px 18px; border-radius: 10px; background: var(--card); font-weight: 600; font-size: 15px; text-decoration: none; transition: background .15s; }
 .resume-tabs a:hover { background: #302f37; }
-.resume-tabs a.is-active { background: var(--accent); }
+.resume-tabs a.is-active { background: var(--accent); color: var(--on-accent); }
 .resume-side { align-self: start; }
 @media (min-width: 960px) { .resume-side { position: sticky; top: 100px; } }
 .panel > .muted { margin: 12px 0 26px; max-width: 620px; }
@@ -204,6 +206,7 @@ html:not(.js) .slide + .slide { margin-top: 64px; }
 .slide-links { display: flex; align-items: center; gap: 14px; margin-top: 20px; }
 .round-link { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--card); transition: background .15s; }
 .round-link:hover { background: var(--accent); }
+.round-link:hover svg { fill: var(--on-accent); }
 .round-link svg { width: 22px; height: 22px; fill: #fff; }
 .text-link { font-weight: 600; text-decoration: none; }
 .text-link:hover { color: var(--accent-text); }
@@ -220,7 +223,7 @@ html:not(.js) .slider-nav { display: none; }
 .slider-count { margin-right: auto; font-family: var(--display); font-size: 15px; color: var(--muted); }
 .slider-btn { display: grid; place-items: center; width: 48px; height: 48px; border: 0; border-radius: 10px; background: var(--accent); cursor: pointer; transition: background .15s; }
 .slider-btn:hover { background: var(--accent-2); }
-.slider-btn svg { width: 22px; height: 22px; fill: #fff; }
+.slider-btn svg { width: 22px; height: 22px; fill: var(--on-accent); }
 
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; gap: 32px; align-items: start; }
@@ -255,7 +258,7 @@ html:not(.js) .slider-nav { display: none; }
 .svc-arrow { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: #fff; transition: background .2s, transform .2s; }
 .svc-arrow svg { width: 22px; height: 22px; fill: var(--bg); }
 .svc:hover .svc-arrow { background: var(--accent); transform: rotate(45deg); }
-.svc:hover .svc-arrow svg { fill: #fff; }
+.svc:hover .svc-arrow svg { fill: var(--on-accent); }
 .svc h3 { margin-top: 6px; font-size: 20px; }
 .svc:hover h3 { color: var(--accent-text); }
 .svc p { font-size: 14.5px; color: var(--muted); }
@@ -336,9 +339,9 @@ html:not(.js) .slider-nav { display: none; }
 .cs-challenge p + p { margin-top: 8px; }
 .cs-challenge b { color: #fff; }
 .case-page .section { min-height: 0; padding: 64px 0; }
-.next-project { display: flex; flex-direction: column; gap: 6px; padding: 28px; border-radius: 20px; background: var(--accent); text-decoration: none; transition: transform .15s; }
+.next-project { display: flex; flex-direction: column; gap: 6px; padding: 28px; border-radius: 20px; background: var(--accent); color: var(--on-accent); text-decoration: none; transition: transform .15s; }
 .next-project:hover { transform: translateY(-2px); }
-.next-label { font-size: 13px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
+.next-label { font-size: 13px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; opacity: .8; }
 .next-title { font-family: var(--display); font-size: clamp(20px, 3.2vw, 28px); font-weight: 600; }
 
 /* Sections slide in on case study pages */
@@ -350,4 +353,38 @@ html:not(.js) .slider-nav { display: none; }
     .hero-art .ring, .marquee-track, .tab-in, .js-slider .slide.is-active { animation: none; }
     .rotator-word, .tech, .nav-toggle span { transition: none; }
     .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Theme colour picker (script.js adds it to every page) ---------- */
+.theme { position: fixed; left: 16px; bottom: 16px; z-index: 19; }
+.theme-btn {
+    display: grid; place-items: center; width: 54px; height: 54px; border: 1px solid var(--line); border-radius: 50%;
+    background: var(--card); cursor: pointer; box-shadow: 0 10px 24px rgba(0, 0, 0, .35); transition: transform .2s;
+}
+.theme-btn:hover { transform: rotate(30deg); }
+.theme-btn svg { width: 26px; height: 26px; fill: var(--accent); }
+.theme-panel {
+    position: absolute; left: 0; bottom: 66px; width: 236px; padding: 16px; border-radius: 16px;
+    background: var(--bg-2); border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+}
+.theme-panel[hidden] { display: none; }
+.theme-panel p { margin-bottom: 12px; font-size: 14px; font-weight: 600; }
+.theme-swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.swatch {
+    position: relative; aspect-ratio: 1; border: 0; border-radius: 50%; background: var(--sw); cursor: pointer;
+    box-shadow: 0 0 0 2px var(--bg-2), 0 0 0 3px transparent; transition: transform .15s, box-shadow .15s;
+}
+.swatch:hover { transform: scale(1.08); }
+.swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--bg-2), 0 0 0 4px #fff; }
+.swatch[aria-pressed="true"]::after {
+    content: ""; position: absolute; inset: 0; margin: auto; width: 9px; height: 5px; border: solid var(--tick); border-width: 0 0 2.5px 2.5px;
+    transform: translateY(-1px) rotate(-45deg);
+}
+@media (max-width: 767px) { .site-footer { padding-bottom: 80px; } }
+/* Phone: the palette sits above the WhatsApp button, on the right, clear of the page's icons */
+@media (max-width: 767px) {
+    .theme { left: auto; right: 16px; bottom: 80px; }
+    .theme-btn { width: 50px; height: 50px; margin-left: auto; }
+    .theme-panel { left: auto; right: 0; bottom: 62px; }
+    .contact-list a, .contact-list span:not(.ci) { font-size: 14.5px; }
 }

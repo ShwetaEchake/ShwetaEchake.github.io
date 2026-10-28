@@ -3,6 +3,56 @@
     root.classList.add('js');
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Theme colour: a palette button (bottom left) on every page. The visitor's pick is kept in
+    // their browser; on a light colour the text on buttons turns dark so it stays readable.
+    var COLOURS = [['#8b5cf6', 'Purple'], ['#ff5a1f', 'Orange'], ['#14b8a6', 'Teal'], ['#3b82f6', 'Blue'],
+                   ['#22c55e', 'Green'], ['#f5b301', 'Gold'], ['#ec4899', 'Pink'], ['#22d3ee', 'Sky']];
+    var DEFAULT_COLOUR = COLOURS[0][0];
+    function isLight(hex) {
+        var c = [1, 3, 5].map(function (i) {
+            var v = parseInt(hex.substr(i, 2), 16) / 255;
+            return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4);
+        });
+        return .2126 * c[0] + .7152 * c[1] + .0722 * c[2] > .35;
+    }
+    function setColour(hex) {
+        root.style.setProperty('--accent', hex);
+        root.style.setProperty('--on-accent', isLight(hex) ? '#1c1b21' : '#fff');
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', hex === DEFAULT_COLOUR ? '#1c1b21' : hex);
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('accent'); } catch (e) {}
+    if (saved && COLOURS.some(function (c) { return c[0] === saved; })) setColour(saved); else saved = DEFAULT_COLOUR;
+
+    var theme = document.createElement('div');
+    theme.className = 'theme';
+    theme.innerHTML = '<div class="theme-panel" id="theme-panel" hidden><p>Theme colour</p><div class="theme-swatches"></div></div>' +
+        '<button type="button" class="theme-btn" aria-expanded="false" aria-controls="theme-panel" aria-label="Change the theme colour">' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4A5.6 5.6 0 0 0 22 9.8C22 5.5 17.5 2 12 2Zm-5.5 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg></button>';
+    document.body.appendChild(theme);
+    var themeBtn = theme.querySelector('.theme-btn'), themePanel = theme.querySelector('.theme-panel');
+    var swatches = theme.querySelector('.theme-swatches');
+    COLOURS.forEach(function (c) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'swatch';
+        b.style.setProperty('--sw', c[0]);
+        b.style.setProperty('--tick', isLight(c[0]) ? '#1c1b21' : '#fff');
+        b.setAttribute('aria-label', c[1]);
+        b.setAttribute('aria-pressed', c[0] === saved);
+        b.addEventListener('click', function () {
+            setColour(c[0]);
+            try { localStorage.setItem('accent', c[0]); } catch (e) {}
+            swatches.querySelectorAll('.swatch').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        });
+        swatches.appendChild(b);
+    });
+    function setPanel(open) { themePanel.hidden = !open; themeBtn.setAttribute('aria-expanded', open); }
+    themeBtn.addEventListener('click', function () { setPanel(themePanel.hidden); });
+    document.addEventListener('click', function (e) { if (!theme.contains(e.target)) setPanel(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setPanel(false); });
+
     // Phone menu: open / close, and close after a link is tapped.
     var toggle = document.querySelector('.nav-toggle');
     var links = document.getElementById('nav-links');
