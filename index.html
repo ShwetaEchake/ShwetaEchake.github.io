@@ -238,29 +238,97 @@
                     <!-- Skills -->
                     <div id="skills" class="panel" data-panel="skills" role="tabpanel">
                         <h2 class="title">My skills</h2>
-                        <p class="muted">Core stack first, then what I use alongside it.</p>
-                        <ul class="tech-grid">
-                            <li class="tech"><span class="tech-mono m-php" aria-hidden="true">php</span><b>PHP</b><small>Back-end language</small></li>
-                            <li class="tech"><span class="tech-mono m-laravel" aria-hidden="true">L</span><b>Laravel</b><small>Back-end framework</small></li>
-                            <li class="tech"><span class="tech-mono m-js" aria-hidden="true">JS</span><b>JavaScript</b><small>Front-end language</small></li>
-                            <li class="tech"><span class="tech-mono m-react" aria-hidden="true">⚛</span><b>React.js</b><small>Front-end library</small></li>
-                            <li class="tech"><span class="tech-mono m-next" aria-hidden="true">N</span><b>Next.js</b><small>React framework</small></li>
-                            <li class="tech"><span class="tech-mono m-mysql" aria-hidden="true">SQL</span><b>MySQL</b><small>Database</small></li>
-                        </ul>
-                        <div class="skill-cols">
-                            <div class="skill-box">
-                                <h3>Also work with</h3>
-                                <ul class="tags"><li>Livewire</li><li>jQuery</li><li>Bootstrap</li><li>HTML5</li><li>CSS3</li></ul>
-                            </div>
-                            <div class="skill-box">
-                                <h3>Tools</h3>
-                                <ul class="tags"><li>Git</li><li>GitHub</li></ul>
-                            </div>
-                            <div class="skill-box">
-                                <h3>Practices</h3>
-                                <ul class="tags"><li>REST API development</li><li>Payment gateway integration</li><li>Front-end &amp; back-end integration</li><li>Agile / Scrum</li></ul>
-                            </div>
+                        <p class="muted">The tools I build with, and where I have used them.</p>
+                        <div class="skill-filter" role="group" aria-label="Show skills">
+                            <button type="button" data-filter="all" aria-pressed="true">All <span>13</span></button>
+                            <button type="button" data-filter="back" aria-pressed="false">Back-end <span>4</span></button>
+                            <button type="button" data-filter="front" aria-pressed="false">Front-end <span>7</span></button>
+                            <button type="button" data-filter="tools" aria-pressed="false">Tools <span>2</span></button>
                         </div>
+                        <ul class="skill-grid">
+                            <li class="skill" data-cat="back" style="--b: #8c90d6">
+                                <span class="skill-logo"><img src="images/skills/php.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>PHP</b>
+                                <small>Back-end language</small>
+                                <span class="used"><i></i>Every project since 2020</span>
+                            </li>
+                            <li class="skill" data-cat="back" style="--b: #f05340">
+                                <span class="skill-logo"><img src="images/skills/laravel.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>Laravel</b>
+                                <small>Back-end framework</small>
+                                <span class="used"><i></i>JSGA · Varpe · Inspection · HR</span>
+                            </li>
+                            <li class="skill" data-cat="back" style="--b: #fb70a9">
+                                <span class="skill-logo"><img src="images/skills/livewire.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>Livewire</b>
+                                <small>Laravel UI framework</small>
+                            </li>
+                            <li class="skill" data-cat="back" style="--b: #00b4d8">
+                                <span class="skill-logo"><img src="images/skills/mysql.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>MySQL</b>
+                                <small>Database</small>
+                                <span class="used"><i></i>JSGA · Varpe · Inspection</span>
+                            </li>
+                            <li class="skill" data-cat="front" style="--b: #f7df1e">
+                                <span class="skill-logo"><img src="images/skills/javascript.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>JavaScript</b>
+                                <small>Language</small>
+                            </li>
+                            <li class="skill" data-cat="front" style="--b: #61dafb">
+                                <span class="skill-logo"><img src="images/skills/react.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>React.js</b>
+                                <small>UI library</small>
+                                <span class="used"><i></i>Varpe Flower website</span>
+                            </li>
+                            <li class="skill" data-cat="front" style="--b: #ffffff">
+                                <span class="skill-logo"><img src="images/skills/nextjs.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>Next.js</b>
+                                <small>React framework</small>
+                                <span class="used"><i></i>Varpe Flower website</span>
+                            </li>
+                            <li class="skill" data-cat="front" style="--b: #4fa3e0">
+                                <span class="skill-logo"><img src="images/skills/jquery.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>jQuery</b>
+                                <small>JavaScript library</small>
+                                <span class="used"><i></i>Varpe admin</span>
+                            </li>
+                            <li class="skill" data-cat="front" style="--b: #a57cf0">
+                                <span class="skill-logo"><img src="images/skills/bootstrap.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>Bootstrap</b>
+                                <small>CSS framework</small>
+                                <span class="used"><i></i>Varpe admin</span>
+                            </li>
+                            <li class="skill" data-cat="front" style="--b: #e8663d">
+                                <span class="skill-logo"><img src="images/skills/html5.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>HTML5</b>
+                                <small>Markup</small>
+                            </li>
+                            <li class="skill" data-cat="front" style="--b: #3d8bfd">
+                                <span class="skill-logo"><img src="images/skills/css3.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>CSS3</b>
+                                <small>Styling</small>
+                            </li>
+                            <li class="skill" data-cat="tools" style="--b: #f05032">
+                                <span class="skill-logo"><img src="images/skills/git.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>Git</b>
+                                <small>Version control</small>
+                                <span class="used"><i></i>JSGA · Varpe</span>
+                            </li>
+                            <li class="skill" data-cat="tools" style="--b: #d1d5db">
+                                <span class="skill-logo"><img src="images/skills/github.svg" alt="" width="40" height="40" loading="lazy"></span>
+                                <b>GitHub</b>
+                                <small>Code hosting</small>
+                                <span class="used"><i></i>Varpe · this portfolio</span>
+                            </li>
+                        </ul>
+                        <h3 class="sub-title">Practices</h3>
+                        <ul class="prac-grid">
+                            <li><span class="prac-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 7.4 4 12l4.6 4.6L10 15.2 6.8 12 10 8.8 8.6 7.4Zm6.8 0L14 8.8l3.2 3.2-3.2 3.2 1.4 1.4L20 12l-4.6-4.6Z"/></svg></span><div><b>REST API development</b><small>JSGA · Varpe</small></div></li>
+                            <li><span class="prac-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Zm2 0v2h14V6H5Zm0 5v7h14v-7H5Zm2 3h5v2H7v-2Z"/></svg></span><div><b>Payment gateway integration</b><small>Square · PayPal · Razorpay on JSGA</small></div></li>
+                            <li><span class="prac-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 1 5 5v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v3h6V7a3 3 0 0 0-3-3Zm0 9a2 2 0 0 0-1 3.7V18h2v-1.3A2 2 0 0 0 12 13Z"/></svg></span><div><b>Role-based access (RBAC)</b><small>JSGA · Inspection · Varpe</small></div></li>
+                            <li><span class="prac-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3-3a1 1 0 1 1 1.4 1.4l-3 3a1 1 0 0 1-1.4 0ZM8.5 18.5a3.5 3.5 0 0 1-2.5-6l2-2 1.4 1.4-2 2a1.5 1.5 0 1 0 2.2 2.2l2-2 1.4 1.4-2 2a3.5 3.5 0 0 1-2.5 1Zm7.1-5.3-1.4-1.4 2-2a1.5 1.5 0 1 0-2.2-2.2l-2 2-1.4-1.4 2-2a3.5 3.5 0 1 1 5 5l-2 2Z"/></svg></span><div><b>Front-end &amp; back-end integration</b><small>Fintoo CRM · Varpe</small></div></li>
+                            <li><span class="prac-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a8 8 0 0 1 7.7 5.9l1.8-1.1.9 1.6-4.3 2.6-2.6-4.3 1.7-1 .7 1.1A6 6 0 0 0 6.3 10H4.2A8 8 0 0 1 12 4Zm-7.4 8.1 4.3-2.6 2.6 4.3-1.7 1-.7-1.1a6 6 0 0 0 11.6-.7h2.1a8 8 0 0 1-15.5 1.9l-1.8 1.1-.9-1.6Z"/></svg></span><div><b>Agile / Scrum</b><small>Working with cross-functional teams</small></div></li>
+                        </ul>
                     </div>
 
                     <!-- About -->

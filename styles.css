@@ -388,3 +388,43 @@ html:not(.js) .slider-nav { display: none; }
     .theme-panel { left: auto; right: 0; bottom: 62px; }
     .contact-list a, .contact-list span:not(.ci) { font-size: 14.5px; }
 }
+
+/* ---------- Skills: logos, filter, where each was used ---------- */
+.skill-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.skill-filter button {
+    display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px;
+    background: transparent; color: #e7e6ee; font: 600 14px/1 "Sora", sans-serif; cursor: pointer; transition: background .15s, border-color .15s, color .15s;
+}
+.skill-filter button span { padding: 2px 7px; border-radius: 999px; background: var(--card); font-size: 12px; color: var(--muted); }
+.skill-filter button:hover { border-color: var(--accent); }
+.skill-filter button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.skill-filter button[aria-pressed="true"] span { background: color-mix(in srgb, var(--on-accent) 18%, transparent); color: inherit; }
+.skill-grid { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (min-width: 720px) { .skill-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
+@media (min-width: 1200px) { .skill-grid { grid-template-columns: repeat(4, 1fr); } }
+.skill {
+    position: relative; display: flex; flex-direction: column; gap: 2px; padding: 18px; border-radius: var(--radius);
+    background: var(--card); border: 1px solid transparent; overflow: hidden; transition: transform .2s, border-color .2s;
+}
+.skill::before {
+    content: ""; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--b) 30%, transparent), transparent 70%); opacity: .5; transition: opacity .2s;
+}
+.skill:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--b) 55%, transparent); }
+.skill:hover::before { opacity: 1; }
+.skill.is-hidden { display: none; }
+.skill-logo { position: relative; display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 10px; border-radius: 14px; background: #f4f4f7; box-shadow: 0 6px 16px rgba(0, 0, 0, .25); }
+.skill-logo img { width: 30px; height: 30px; }
+.skill b { position: relative; font-size: 16px; }
+.skill small { position: relative; font-size: 13px; color: var(--muted); }
+.used { position: relative; display: flex; align-items: flex-start; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12.5px; line-height: 1.4; color: #d4d3dc; }
+.used i { flex-shrink: 0; width: 6px; height: 6px; margin-top: 5px; border-radius: 50%; background: var(--b); }
+.sub-title { margin: 34px 0 14px; font-size: 18px; }
+.prac-grid { list-style: none; display: grid; gap: 12px; }
+@media (min-width: 720px) { .prac-grid { grid-template-columns: 1fr 1fr; } }
+.prac-grid li { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: var(--radius); background: var(--card); }
+.prac-ico { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.prac-ico svg { width: 22px; height: 22px; fill: var(--accent-text); }
+.prac-grid b { display: block; font-size: 15px; }
+.prac-grid small { font-size: 13px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .skill { transition: none; } }

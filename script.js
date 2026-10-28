@@ -101,6 +101,18 @@
         });
     });
 
+    // Skills: All / Back-end / Front-end / Tools.
+    var filter = document.querySelector('.skill-filter');
+    if (filter) {
+        filter.addEventListener('click', function (e) {
+            var btn = e.target.closest('button');
+            if (!btn) return;
+            var cat = btn.dataset.filter;
+            filter.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b === btn); });
+            document.querySelectorAll('.skill').forEach(function (s) { s.classList.toggle('is-hidden', cat !== 'all' && s.dataset.cat !== cat); });
+        });
+    }
+
     // Work: one project at a time, with ← → buttons and the arrow keys.
     var slider = document.querySelector('.slider');
     var showSlide = function () {};
