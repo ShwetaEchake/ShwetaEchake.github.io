@@ -106,8 +106,6 @@ figure { margin: 0; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 30px; }
 
 .hero-art { position: relative; justify-self: center; width: min(78vw, 380px); aspect-ratio: 1; }
-.hero-art .ring { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero-art .ring circle { fill: none; stroke: var(--accent); stroke-width: 3; stroke-dasharray: 22 14 90 18 6 20; stroke-linecap: round; }
 .monogram {
     position: absolute; inset: 8%; display: grid; place-content: center; justify-items: center; gap: 6px; border-radius: 50%;
     background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--accent) 18%, var(--bg)) 0%, var(--bg-2) 55%, var(--bg) 100%);
@@ -357,7 +355,7 @@ html:not(.js) .slider-nav { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .hero-art .ring, .marquee-track, .tab-in, .js-slider .slide.is-active { animation: none; }
+    .marquee-track, .tab-in, .js-slider .slide.is-active { animation: none; }
     .rotator-word, .tech, .nav-toggle span { transition: none; }
     .js .reveal { opacity: 1; transform: none; transition: none; }
 }
@@ -470,14 +468,9 @@ html:not(.js) .slider-nav { display: none; }
 @media (max-width: 767px) { .nav { gap: 8px; } .mode-btn { width: 40px; height: 40px; } }
 
 /* Hero photo inside the turning ring */
-.portrait { position: absolute; inset: 8%; display: block; border-radius: 50%; overflow: hidden; background: var(--card);
+.portrait { position: absolute; inset: 3%; display: block; border-radius: 50%; overflow: hidden; background: var(--card);
     box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px color-mix(in srgb, var(--accent) 35%, transparent), 0 24px 70px color-mix(in srgb, var(--accent) 22%, transparent); }
 .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.portrait-badge {
-    position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%); padding: 7px 14px; border-radius: 999px;
-    background: var(--accent); color: var(--on-accent); font: 600 14px/1 ui-monospace, Menlo, Consolas, monospace; white-space: nowrap;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
-}
 
 /* Live site links */
 .slide-links .live-link { margin-left: 8px; padding-left: 16px; border-left: 1px solid var(--line); }
