@@ -517,3 +517,16 @@ main { flex: 1 0 auto; }
     .section { padding-bottom: 48px; }
     .footer-row { padding-top: 18px; padding-bottom: 20px; }
 }
+
+/* Case study: screens from inside the app */
+.gallery-note { margin: -14px 0 24px; font-size: 14px; color: var(--muted); }
+.shots-laptop { display: grid; gap: 22px; }
+@media (min-width: 900px) { .shots-laptop { grid-template-columns: 1fr 1fr; } }
+.shots-phone { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 16px; margin-top: 34px; }
+@media (min-width: 900px) { .shots-phone { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+.shot figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); text-align: center; }
+.phone-frame { padding: 7px; border-radius: 28px; background: #0d0d10; box-shadow: 0 20px 44px rgba(0, 0, 0, .4); }
+.phone-frame img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 760; object-fit: cover; object-position: top; border-radius: 22px; }
+.paper-frame { overflow: hidden; border-radius: 10px; background: #fff; box-shadow: 0 20px 44px rgba(0, 0, 0, .35); }
+.paper-frame img { display: block; width: 100%; height: auto; }
+.shots-phone .shot { align-self: start; }
