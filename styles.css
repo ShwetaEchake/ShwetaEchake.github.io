@@ -484,3 +484,6 @@ html:not(.js) .slider-nav { display: none; }
 /* Live site links */
 .slide-links .live-link { margin-left: 8px; padding-left: 16px; border-left: 1px solid var(--line); }
 .live-btn { margin-top: 20px; }
+/* Light mode: the white and pale-grey pills in the moving strip get a dark shade, so they show on white */
+:root[data-mode="light"] .marquee li[style*="#ffffff"] { --c: #17161c !important; }
+:root[data-mode="light"] .marquee li[style*="#d1d5db"] { --c: #6b7280 !important; }
