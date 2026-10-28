@@ -480,3 +480,7 @@ html:not(.js) .slider-nav { display: none; }
     background: var(--accent); color: var(--on-accent); font: 600 14px/1 ui-monospace, Menlo, Consolas, monospace; white-space: nowrap;
     box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
 }
+
+/* Live site links */
+.slide-links .live-link { margin-left: 8px; padding-left: 16px; border-left: 1px solid var(--line); }
+.live-btn { margin-top: 20px; }
