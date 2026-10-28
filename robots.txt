@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shwetaechake.github.io/sitemap.xml
