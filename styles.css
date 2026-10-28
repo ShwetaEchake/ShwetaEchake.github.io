@@ -208,7 +208,7 @@ html:not(.js) .slide + .slide { margin-top: 64px; }
 .text-link { font-weight: 600; text-decoration: none; }
 .text-link:hover { color: var(--accent-text); }
 .slide-media { overflow: hidden; border-radius: 16px; background: var(--card); box-shadow: 0 24px 60px rgba(0, 0, 0, .4); }
-.slide-media img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.slide-media img { display: block; width: 100%; height: auto; }
 .slide-art {
     display: grid; place-content: center; justify-items: center; gap: 18px; aspect-ratio: 16 / 10;
     background: radial-gradient(circle at 70% 20%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 60%), linear-gradient(135deg, #2b2a31, #1f1e24);
