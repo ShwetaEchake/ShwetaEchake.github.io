@@ -19,8 +19,32 @@
         root.style.setProperty('--accent', hex);
         root.style.setProperty('--on-accent', isLight(hex) ? '#1c1b21' : '#fff');
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', hex === DEFAULT_COLOUR ? '#1c1b21' : hex);
+        if (meta) meta.setAttribute('content', hex === DEFAULT_COLOUR ? (root.getAttribute('data-mode') === 'light' ? '#f5f5f8' : '#1c1b21') : hex);
     }
+    // Day / night: dark is the default; the visitor's pick is kept in their browser.
+    var mode = null;
+    try { mode = localStorage.getItem('mode'); } catch (e) {}
+    if (mode === 'light') root.setAttribute('data-mode', 'light');
+    var modeBtn = document.createElement('button');
+    modeBtn.type = 'button';
+    modeBtn.className = 'mode-btn';
+    modeBtn.innerHTML = '<svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.3 2a8.5 8.5 0 1 0 9.7 11.6A7 7 0 0 1 12.3 2Z"/></svg>' +
+        '<svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10ZM11 1h2v3h-2V1Zm0 19h2v3h-2v-3ZM1 11h3v2H1v-2Zm19 0h3v2h-3v-2ZM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1Zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1ZM18.4 4.2l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1ZM6.3 16.3l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1Z"/></svg>';
+    function labelMode() {
+        var light = root.getAttribute('data-mode') === 'light';
+        modeBtn.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+        modeBtn.setAttribute('aria-pressed', light);
+    }
+    modeBtn.addEventListener('click', function () {
+        var light = root.getAttribute('data-mode') !== 'light';
+        if (light) root.setAttribute('data-mode', 'light'); else root.removeAttribute('data-mode');
+        try { localStorage.setItem('mode', light ? 'light' : 'dark'); } catch (e) {}
+        labelMode();
+        setColour(saved);
+    });
+    labelMode();
+    document.querySelector('.nav').appendChild(modeBtn);
+
     var saved = null;
     try { saved = localStorage.getItem('accent'); } catch (e) {}
     if (saved && COLOURS.some(function (c) { return c[0] === saved; })) setColour(saved); else saved = DEFAULT_COLOUR;
@@ -42,6 +66,7 @@
         b.setAttribute('aria-label', c[1]);
         b.setAttribute('aria-pressed', c[0] === saved);
         b.addEventListener('click', function () {
+            saved = c[0];
             setColour(c[0]);
             try { localStorage.setItem('accent', c[0]); } catch (e) {}
             swatches.querySelectorAll('.swatch').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
