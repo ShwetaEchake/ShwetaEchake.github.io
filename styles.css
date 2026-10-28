@@ -5,12 +5,12 @@
     --line: #34333b;
     --text: #ffffff;
     --muted: #a9a8b3;
-    --accent: #8b5cf6;
+    --accent: #22d3ee;
     --accent-2: color-mix(in srgb, var(--accent) 82%, #fff);
     /* Small text in the accent: a lighter shade, so it stays easy to read on the dark background */
     --accent-text: color-mix(in srgb, var(--accent) 72%, #fff);
     /* Text on an accent background: white, or dark for a light accent (set by script.js) */
-    --on-accent: #fff;
+    --on-accent: #1c1b21;
     --radius: 14px;
     --wrap: 1180px;
     --display: "Unbounded", "Sora", system-ui, sans-serif;
