@@ -288,7 +288,6 @@ html:not(.js) .slider-nav { display: none; }
 /* Phone: room for the WhatsApp button, so it never sits on top of a link or the footer */
 @media (max-width: 767px) {
     .contact-list li { padding-right: 64px; }
-    .site-footer { padding-bottom: 70px; }
 }
 
 /* 404 page */
@@ -388,7 +387,6 @@ html:not(.js) .slider-nav { display: none; }
     content: ""; position: absolute; inset: 0; margin: auto; width: 9px; height: 5px; border: solid var(--tick); border-width: 0 0 2.5px 2.5px;
     transform: translateY(-1px) rotate(-45deg);
 }
-@media (max-width: 767px) { .site-footer { padding-bottom: 80px; } }
 /* Phone: the palette sits above the WhatsApp button, on the right, clear of the page's icons */
 @media (max-width: 767px) {
     .theme { left: auto; right: 16px; bottom: 80px; }
@@ -520,3 +518,9 @@ main { flex: 1 0 auto; }
 .hero-grid { margin-top: auto; }
 .hero .marquee { margin-top: auto; }
 .hero .stats { margin-bottom: 40px; }
+
+/* Phone: less empty space at the bottom of each tab and under the footer */
+@media (max-width: 767px) {
+    .section { padding-bottom: 48px; }
+    .footer-row { padding-top: 18px; padding-bottom: 20px; }
+}
