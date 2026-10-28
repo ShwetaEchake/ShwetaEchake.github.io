@@ -203,30 +203,12 @@
                 if (!changed && window.matchMedia('(max-width: 959px)').matches) document.getElementById(panel).scrollIntoView();
             }
         }
-        if (changed && tab === 'home') countUp();
         if (changed) {
             window.scrollTo(0, 0);
             main.classList.remove('tab-in');
             void main.offsetWidth;
             main.classList.add('tab-in');
         }
-    }
-
-    // Home numbers count up from 0 each time the Home tab is shown.
-    var counters = document.querySelectorAll('.count');
-    function countUp() {
-        if (reduceMotion) return;
-        counters.forEach(function (el) {
-            var to = +el.dataset.to, start = null, dur = 1400;
-            function step(t) {
-                if (start === null) start = t;
-                var p = Math.min((t - start) / dur, 1);
-                el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
-                if (p < 1) requestAnimationFrame(step);
-            }
-            el.textContent = '0';
-            requestAnimationFrame(step);
-        });
     }
 
     if (sections.length) {
