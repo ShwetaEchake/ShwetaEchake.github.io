@@ -96,8 +96,8 @@ figure { margin: 0; }
 .hero-grid { display: grid; gap: 40px; align-items: center; }
 @media (min-width: 960px) { .hero { padding-top: 56px; } .hero-grid { grid-template-columns: 1.2fr 1fr; gap: 48px; } }
 .hero-role { font-size: 17px; color: var(--soft); }
-.hero h1 { margin-top: 10px; font-size: clamp(38px, 7vw, 72px); font-weight: 600; letter-spacing: -1px; }
-.hero h1 span { color: var(--accent); }
+.hero h1 { margin-top: 10px; font-size: clamp(30px, 8.4vw, 64px); font-weight: 600; letter-spacing: -1px; }
+.hero h1 span { color: var(--accent); white-space: nowrap; }
 .hero-line { margin-top: 16px; font-size: clamp(17px, 2.4vw, 21px); color: var(--soft); }
 .rotator { color: var(--accent-text); font-weight: 600; white-space: nowrap; }
 .rotator-word { display: inline-block; transition: opacity .3s, transform .3s; }
