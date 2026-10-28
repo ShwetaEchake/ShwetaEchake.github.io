@@ -273,7 +273,7 @@ html:not(.js) .slider-nav { display: none; }
 
 /* ---------- Footer, WhatsApp ---------- */
 .site-footer { border-top: 1px solid var(--line); }
-.footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding-top: 26px; padding-bottom: 30px; }
+.footer-row { display: flex; justify-content: center; padding-top: 22px; padding-bottom: 24px; text-align: center; }
 .footer-row .logo { font-size: 22px; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
 .footer-links a { color: var(--muted); text-decoration: none; font-size: 15px; }

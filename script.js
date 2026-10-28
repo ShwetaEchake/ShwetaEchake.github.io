@@ -164,7 +164,7 @@
     // Tabs: one page at a time, picked by the address, so links and Back work.
     // #experience, #education, #skills and #about are the Resume tab's own panels; #projects is Work.
     var sections = document.querySelectorAll('main [data-tab]');
-    var navLinks = document.querySelectorAll('#nav-links a, .footer-links a');
+    var navLinks = document.querySelectorAll('#nav-links a');
     var panels = document.querySelectorAll('.panel[data-panel]');
     var panelLinks = document.querySelectorAll('.resume-tabs a');
     var tabOf = { projects: 'work' };
