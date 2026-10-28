@@ -487,3 +487,49 @@ html:not(.js) .slider-nav { display: none; }
 /* Light mode: the white and pale-grey pills in the moving strip get a dark shade, so they show on white */
 :root[data-mode="light"] .marquee li[style*="#ffffff"] { --c: #17161c !important; }
 :root[data-mode="light"] .marquee li[style*="#d1d5db"] { --c: #6b7280 !important; }
+
+/* ---------- Home polish ---------- */
+/* Footer at the bottom of the window, even on a short tab */
+body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+main { flex: 1 0 auto; }
+.section { min-height: 0; }
+
+/* A soft glow and a dot pattern behind the hero */
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background:
+        radial-gradient(520px 380px at 78% 32%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+        radial-gradient(420px 300px at 8% 85%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+        radial-gradient(circle, color-mix(in srgb, var(--text) 9%, transparent) 1px, transparent 1.5px) 0 0 / 26px 26px;
+    -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+}
+
+/* Technology logos floating on the ring */
+.orbit {
+    position: absolute; z-index: 2; display: grid; place-items: center; width: 15%; aspect-ratio: 1; border-radius: 50%;
+    background: #fff; box-shadow: 0 10px 24px rgba(0, 0, 0, .3); animation: bob 5s ease-in-out infinite;
+}
+.orbit img { width: 58%; height: 58%; }
+.o1 { top: 8%; left: 4%; }
+.o2 { top: 2%; right: 12%; animation-delay: -1.2s; }
+.o3 { bottom: 22%; right: -2%; animation-delay: -2.5s; }
+.o4 { bottom: 16%; left: -2%; animation-delay: -3.7s; }
+@keyframes bob { 50% { transform: translateY(-8px); } }
+
+/* Numbers in one card with thin dividers */
+.stats { margin-top: 48px; padding: 26px 24px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+@media (min-width: 768px) { .stats { padding: 26px 32px; } .stats li + li { padding-left: 24px; border-left: 1px solid var(--line); } }
+@media (max-width: 767px) { .stats { margin-left: 16px; margin-right: 16px; width: auto; } }
+.stats b { color: var(--text); }
+.stats li:hover b { color: var(--accent-text); }
+.hero .marquee { margin-top: 40px; }
+
+@media (prefers-reduced-motion: reduce) { .orbit { animation: none; } }
+/* Home fills the window: hero content in the middle, the moving strip just above the footer */
+.hero[data-tab] { display: flex; flex-direction: column; min-height: calc(100vh - 76px - 69px); min-height: calc(100dvh - 76px - 69px); }
+.hero[data-tab][hidden] { display: none !important; }
+.hero-grid, .stats { flex-shrink: 0; }
+.hero-grid { margin-top: auto; }
+.hero .marquee { margin-top: auto; }
+.hero .stats { margin-bottom: 40px; }
