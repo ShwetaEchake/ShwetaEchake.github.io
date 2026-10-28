@@ -530,3 +530,14 @@ main { flex: 1 0 auto; }
 .paper-frame { overflow: hidden; border-radius: 10px; background: #fff; box-shadow: 0 20px 44px rgba(0, 0, 0, .35); }
 .paper-frame img { display: block; width: 100%; height: auto; }
 .shots-phone .shot { align-self: start; }
+
+/* Phone: each number above its label, in a 2 × 2 grid with thin lines between */
+@media (max-width: 767px) {
+    .hero .stats { gap: 0; padding: 0; }
+    .stats li { flex-direction: column; justify-content: center; gap: 6px; padding: 20px 10px; text-align: center; }
+    .stats li:nth-child(odd) { border-right: 1px solid var(--line); }
+    .stats li:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .stats span br { display: none; }
+    .stats span { max-width: 130px; font-size: 13.5px; }
+    .stats b { font-size: 36px; }
+}
