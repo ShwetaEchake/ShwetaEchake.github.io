@@ -5,8 +5,8 @@
 
     // Theme colour: a palette button (bottom left) on every page. The visitor's pick is kept in
     // their browser; on a light colour the text on buttons turns dark so it stays readable.
-    var COLOURS = [['#22d3ee', 'Sky'], ['#8b5cf6', 'Purple'], ['#ff5a1f', 'Orange'], ['#14b8a6', 'Teal'],
-                   ['#3b82f6', 'Blue'], ['#22c55e', 'Green'], ['#f5b301', 'Gold'], ['#ec4899', 'Pink']];
+    var COLOURS = [['#8b5cf6', 'Purple'], ['#ff5a1f', 'Orange'], ['#14b8a6', 'Teal'], ['#3b82f6', 'Blue'],
+                   ['#22c55e', 'Green'], ['#f5b301', 'Gold'], ['#ec4899', 'Pink'], ['#22d3ee', 'Sky']];
     var DEFAULT_COLOUR = COLOURS[0][0];
     function isLight(hex) {
         var c = [1, 3, 5].map(function (i) {
@@ -23,8 +23,7 @@
     }
     var saved = null;
     try { saved = localStorage.getItem('accent'); } catch (e) {}
-    if (!saved || !COLOURS.some(function (c) { return c[0] === saved; })) saved = DEFAULT_COLOUR;
-    setColour(saved);
+    if (saved && COLOURS.some(function (c) { return c[0] === saved; })) setColour(saved); else saved = DEFAULT_COLOUR;
 
     var theme = document.createElement('div');
     theme.className = 'theme';
